@@ -23,15 +23,6 @@ section {
     color: aliceblue;
 }
 
-/* section {
-    margin: 0em 3em;
-} */
-.table {
-    /* width: 500px; */
-    /* width: max-content;
-    height: min-content; */
-    /* margin: 2em 2em; */
+li {
+    list-style-type: none;
 }
-/* .content-row {
-    margin-top: 2em;
-} */

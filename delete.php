@@ -6,8 +6,8 @@ if(isset($_GET["id"])) {
     $id = $_GET["id"];
 }
 
-$delete = "DELETE FROM full_staff_data WHERE `full_staff_data`.`staff_id` = $id";
-$delete1 = "DELETE FROM departments WHERE `departments`.`department_id` = $id";
+$delete = "DELETE FROM staff WHERE `staff`.`staff_id` = $id";
+$delete1 = "DELETE FROM department WHERE `department`.`id` = $id";
 $result = $conn->query($delete);
 $result1 = $conn->query($delete1);
 

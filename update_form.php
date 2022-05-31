@@ -5,28 +5,27 @@ if(isset($_GET["id"])) {
     $id = $_GET["id"];
 }
 
-$all_departments_query = $conn->query("SELECT * FROM departments");
+$all_departments_query = $conn->query("SELECT * FROM department");
 $all_departments_result = mysqli_fetch_all($all_departments_query,MYSQLI_ASSOC);
 
 
 
 
-$query = "SELECT fsd.full_name, fsd.email, fsd.mobile, fsd.n_o_k, fsd.d_o_b, fsd.position, dp.id, dp.name AS department
-            FROM full_staff_data fsd, departments dp
+$query = "SELECT fsd.full_name, fsd.email, fsd.mobile, fsd.n_o_k, fsd.date_of_birth, fsd.position, dp.id, dp.name AS department
+            FROM staff fsd, department dp
  WHERE fsd.departments_id = dp.id AND staff_id = $id";
 
 
 
 $result =  $conn->query($query);
-// print_r($result->fetch_assoc());
-// die();
+
 
 while ($current_staff = $result->fetch_assoc()) {
     $name       = $current_staff['full_name'];
     $mail       = $current_staff['email'];
     $mNum       = $current_staff['mobile'];
     $nok        = $current_staff['n_o_k'];
-    $dob        = $current_staff['d_o_b'];
+    $dob        = $current_staff['date_of_birth'];
     $pos        = $current_staff['position'];
     $department = $current_staff['department'];
     $department_id = $current_staff['id'];
@@ -78,7 +77,7 @@ while ($current_staff = $result->fetch_assoc()) {
 
             <div class="form-group form_group">
                 <label>Date of Birth</label>  
-                <input type="date"   value="<?php echo $dob;?>" name="dob" class="form-control" />
+                <input type="date" value="<?php echo $dob ?>" name="dob" class="form-control" />
             </div>
 
             <div class="form-group form_group">

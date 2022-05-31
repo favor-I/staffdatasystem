@@ -1,7 +1,3 @@
-<?php 
-    // $all_departments_query = $conn->query("SELECT * FROM departments");
-    // // $all_departments_result = mysqli_fetch_all($all_departments_query,MYSQLI_ASSOC);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

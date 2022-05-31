@@ -1,13 +1,7 @@
 <?php
     include_once "./db_conn.php";
-    $department_retrieval_query = $conn->query("SELECT * FROM `departments`");
+    $department_retrieval_query = $conn->query("SELECT * FROM `department`");
     $department_retrieval_result = mysqli_fetch_all($department_retrieval_query,MYSQLI_ASSOC);
-    // echo "<pre>";
-    // print_r($department_retrieval_result);
-    // foreach($department_retrieval_result as $key => $value) {
-    //     print_r ($value["name"]);
-    // }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,10 +15,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/style.css"/>
+    <link rel="stylesheet" href="./styles/index.css"/> 
     <link rel="stylesheet" href="./styles/employees.css"/>
 </head>
 <body>
-
+    <nav>
+        <div class="logo">
+            <li><a href="http://localhost/staffdatasystem/">Staff DB</a></li>
+        </div>
+        <ul>
+            <li><a href="http://localhost/staffdatasystem/">Dashboard</a></li>
+            <li><a href="http://localhost/staffdatasystem/employees.php">Staff Info</a></li>
+            <li><a href="http://localhost/staffdatasystem/departments.php">Departments</a></li>
+        </ul>
+    </nav>
 
     <?php
     $row = 0;
@@ -46,15 +50,6 @@
                 <tr class="content-row">
                     <td><?php echo $row; ?></td>
                     <td><?php echo $value['name'];?></td>
-
-                    <!-- <td>
-                        <div style="display: flex; flex-direction: row;">
-                            <form class="" action="config.php" method="POST">
-                                <a href="http://localhost/staffdatasystem/delete.php?id=<?php //echo $each_row['staff_id'];?>"><input style="margin-right: .15em;" class="btn btn-danger btn_delete" placeholder="Delete" value="Delete" type="button"></a>
-                                <a href="http://localhost/staffdatasystem/update_form.php?id=<?php //echo $each_row['staff_id'];?>"><input style="margin-left: .15em;" class="btn btn-warning btn_delete" placeholder="Delete" value="Update" type="button"></a>
-                            </form>
-                        </div>
-                    </td> -->
                 </tr>
         <?php }?>
         </tbody>
